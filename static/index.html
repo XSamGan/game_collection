@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Коллекция игр</title>
+</head>
+
+<body>
+    <div class="app-layout">
+
+        <!-- Боковая панель -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <div class="user-avatar">User</div>
+                <span id="sidebar-username">Пользователь</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active">Главная</a>
+                <a href="#" class="nav-link">Статистика</a>
+                <a href="#" class="nav-link">Топ игр</a>
+            </nav>
+
+            <button id="logout-button" class="logout-button">
+                Выйти
+            </button>
+        </aside>
+
+        <!-- Основная область -->
+        <main class="main-content">
+
+            <!-- Приветственный баннер -->
+            <section class="hello-banner">
+                <div>
+                    <h1>Привет, <span id="username"></span>!</h1>
+                    <p>Продолжим играть?</p>
+                </div>
+            </section>
+
+            <!-- Статистика -->
+            <section class="stats-section">
+
+                <div class="stats-card stats-1">
+                    <p class="stats-p-min">Всего игр</p>
+                    <h2 id="total-games">0</h2>
+                </div>
+
+                <div class="stats-card stats-2">
+                    <p class="stats-p-min">Пройдено</p>
+                    <h2 id="completed-games">0</h2>
+                </div>
+
+                <div class="stats-card stats-3">
+                    <p class="stats-p-min">Часов в играх</p>
+                    <h2 id="total-hours">0</h2>
+                </div>
+
+                <div class="stats-card stats-4">
+                    <p class="stats-p-min">Средняя оценка</p>
+                    <h2 id="average-rating">—</h2>
+                </div>
+
+            </section>
+
+            <!-- Поиск и фильтры -->
+            <section class="toolbar">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Поиск игр..."
+                >
+
+                <select id="platform-filter">
+                    <option value="">Все платформы</option>
+                </select>
+
+                <select id="status-filter">
+                    <option value="">Все статусы</option>
+                </select>
+
+                <button id="add-game-button">
+                    + Добавить игру
+                </button>
+            </section>
+
+            <!-- Игры и топ -->
+            <section class="collection-layout">
+
+                <div class="games-section">
+                    <h2>Моя коллекция</h2>
+
+                    <p id="message">Загрузка...</p>
+
+                    <div id="games-list" class="games-grid"></div>
+                </div>
+
+                <aside class="top-section">
+                    <h2>Топ игр</h2>
+                    <p>Лучшие игры по оценке</p>
+
+                    <div id="top-games-list"></div>
+                </aside>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/static/js/index.js"></script>
+</body>
+</html>
