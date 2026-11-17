@@ -1,5 +1,6 @@
 from pydantic import BaseModel, ConfigDict, Field
 
+from datetime import date
 
 
 class RegisterRequest(BaseModel):
@@ -45,22 +46,24 @@ class PlatformResponse(BaseModel):
 
 
 class GameCreate(BaseModel):
-    title: str = Field(min_length=1, max_length=150)
+    title: str
     description: str | None = None
+    genre: str | None = None
     status_id: int
-    hours_played: float = Field(default=0, ge=0)
-    rating: float | None = Field(default=None, ge=0, le=10)
-    release_year: int | None = Field(default=None, ge=1950, le=2100)
+    hours_played: float = 0
+    rating: float | None = None
+    release_date: date | None = None
     platform_id: int
 
 
 class GameUpdate(BaseModel):
     title: str | None = Field(default=None, min_length=1, max_length=150)
     description: str | None = None
+    genre: str | None
     status_id: int | None = None
     hours_played: float | None = Field(default=None, ge=0)
     rating: float | None = Field(default=None, ge=0, le=10)
-    release_year: int | None = Field(default=None, ge=1950, le=2100)
+    release_date: date | None = None
     platform_id: int | None = None
 
 
@@ -68,10 +71,11 @@ class GameResponse(BaseModel):
     id: int
     title: str
     description: str | None
+    genre: str | None
     status_id: int
     hours_played: float
     rating: float | None
-    release_year: int | None
+    release_date: date | None = None
     user_id: int
     platform_id: int
     platform_name: str

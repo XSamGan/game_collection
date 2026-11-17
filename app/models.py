@@ -1,8 +1,8 @@
-from sqlalchemy import Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Float, ForeignKey, Integer, String, Text, Date
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .database import Base
-
+from datetime import date
 
 class User(Base):
     __tablename__ = "users"
@@ -86,6 +86,11 @@ class Game(Base):
         nullable=True,
     )
 
+    genre: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True,
+    )
+
     status_id: Mapped[int] = mapped_column(
         Integer,
         ForeignKey("statuses.id"),
@@ -103,8 +108,8 @@ class Game(Base):
         nullable=True,
     )
 
-    release_year: Mapped[int | None] = mapped_column(
-        Integer,
+    release_date: Mapped[date | None] = mapped_column(
+        Date,
         nullable=True,
     )
 

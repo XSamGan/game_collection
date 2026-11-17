@@ -19,6 +19,7 @@ router = APIRouter(
 def get_games(
     search: str | None = None,
     status_id: int | None = None,
+    platform_id: int | None = None,
     sort: str | None = None,
     limit: int = 10,
     offset: int = 0,
@@ -38,6 +39,11 @@ def get_games(
         query = query.where(
         Game.status_id == status_id
     )
+
+    if platform_id:
+        query = query.where(
+            Game.platform_id == platform_id
+        )    
 
     if sort == "rating_desc":
         query = query.order_by(Game.rating.desc())
@@ -61,6 +67,14 @@ def get_game_stats(
         .where(Game.user_id == current_user.id)
     )
 
+    completed_games = db.scalar(
+        select(func.count(Game.id))
+        .where(
+            Game.user_id == current_user.id,
+            Game.status_id == 3,
+        )
+    )
+
     average_rating = db.scalar(
         select(func.avg(Game.rating))
         .where(Game.user_id == current_user.id)
@@ -82,6 +96,7 @@ def get_game_stats(
 
     return {
         "total_games": total_games or 0,
+        "completed_games": completed_games or 0,
         "average_rating": round(average_rating or 0, 2),
         "total_hours": round(total_hours or 0, 2),
         "games_by_status": [
@@ -200,10 +215,11 @@ def create_game(
     game = Game(
         title=data.title,
         description=data.description,
+        genre=data.genre,
         status_id=data.status_id,
         hours_played=data.hours_played,
         rating=data.rating,
-        release_year=data.release_year,
+        release_date=data.release_date,
         platform_id=data.platform_id,
         user_id=current_user.id,
     )

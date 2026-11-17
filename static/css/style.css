@@ -1,5 +1,4 @@
 
-/* ---------- Общие настройки ---------- */
 
 * {
     box-sizing: border-box;
@@ -41,14 +40,11 @@ a {
     text-decoration: none;
 }
 
-/* ---------- Общая структура ---------- */
-
 .app-layout {
     display: flex;
     min-height: 100vh;
 }
 
-/* ---------- Боковая панель ---------- */
 
 .sidebar {
     width: 240px;
@@ -116,15 +112,12 @@ a {
     background: var(--card-light);
 }
 
-/* ---------- Основная область ---------- */
-
 .main-content {
     flex: 1;
     min-width: 0;
     padding: 32px;
 }
 
-/* ---------- Приветственный баннер ---------- */
 
 .hello-banner {
     background: linear-gradient(120deg, #382047, #54275f);
@@ -143,7 +136,7 @@ a {
     color: var(--muted);
 }
 
-/* ---------- Статистика ---------- */
+
 
 .stats-section {
     display: grid;
@@ -171,7 +164,6 @@ a {
     font-size: 27px;
 }
 
-/* ---------- Поиск и фильтры ---------- */
 
 .toolbar {
     display: flex;
@@ -216,7 +208,6 @@ a {
     background: var(--accent-hover);
 }
 
-/* ---------- Коллекция и топ ---------- */
 
 .collection-layout {
     display: grid;
@@ -249,7 +240,6 @@ a {
     margin-bottom: 16px;
 }
 
-/* ---------- Сетка игр ---------- */
 
 .games-grid {
     display: grid;
@@ -262,7 +252,6 @@ a {
     margin-bottom: 16px;
 }
 
-/* ---------- Адаптивность ---------- */
 
 @media (max-width: 1100px) {
     .games-grid {
@@ -381,4 +370,93 @@ a {
     .stats-card h2 {
         font-size: 22px;
     }
+}
+
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+#add-game-form[hidden] {
+    display: none;
+}
+
+.modal-window {
+    background: #2b1938;
+    border: 1px solid #59366b;
+    border-radius: 18px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-window h2 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+
+.modal-window input,
+.modal-window textarea,
+.modal-window select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 14px;
+    background: #1c1025;
+    color: white;
+    border: 1px solid #59366b;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.modal-window textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+
+.modal-window button {
+    padding: 12px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 9px;
+    background: #d64de5;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modal-window button:hover {
+    background: #e56cf0;
+}
+
+@media (max-width: 480px) {
+    .modal-window {
+        padding: 20px;
+    }
+}
+
+
+.modal-window input[type="number"]::-webkit-inner-spin-button,
+.modal-window input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.modal-window input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }

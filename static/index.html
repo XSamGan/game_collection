@@ -84,7 +84,41 @@
                 <button id="add-game-button">
                     + Добавить игру
                 </button>
+
             </section>
+
+            <div id="add-game-form" class="modal-overlay" hidden>
+                <div class="modal-window">
+                    <h2>Добавить игру</h2>
+
+                    <form id="game-form">
+                        <input type="hidden" id="game-id">
+                        <input type="text" id="game-title" placeholder="Название игры" required>
+
+                        <textarea id="game-description" placeholder="Описание игры"></textarea>
+
+                        <select id="game-platform" required>
+                            <option value="">Выбери платформу</option>
+                        </select>
+
+                        <select id="game-status" required>
+                            <option value="">Выбери статус</option>
+                        </select>
+
+                            <input type="number" id="game-hours" placeholder="Сколько часов сыграно" min="0" step="0.1">
+
+                            <input type="number" id="game-rating" placeholder="Оценка" min="0" max="10" step="0.1">
+
+                            <input type="text" id="game-genre" placeholder="Жанр">
+
+                            <label for="game-date">Дата выхода</label>
+                            <input type="date" id="game-date">
+
+                        <button type="submit">Сохранить игру</button>
+                        <button type="button" id="cancel-game-button">Отмена</button>
+                    </form>
+                </div>
+            </div>
 
             <!-- Игры и топ -->
             <section class="collection-layout">
