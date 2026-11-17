@@ -21,7 +21,8 @@ const addGameButton = document.querySelector("#add-game-button");
 const addGameForm = document.querySelector("#add-game-form");
 const cancelGameButton = document.querySelector("#cancel-game-button");
 
-// Получаем информацию о пользователе
+const sidebarUsername = document.getElementById("sidebar-username");
+
 async function loadUser() {
     const response = await fetch("/api/auth/me");
 
@@ -36,6 +37,7 @@ async function loadUser() {
 
     const user = await response.json();
     usernameElement.textContent = user.username;
+    sidebarUsername.textContent = user.username;
 
     return true;
 }
@@ -75,7 +77,6 @@ async function loadFilters() {
     });
 }
 
-// Загружаем список игр
 async function loadGames() {
 
     const search = searchInput.value.trim();
@@ -153,7 +154,7 @@ async function loadGames() {
     });
 }
 
-// Открываем игру для редактирования
+
 function editGame(game) {
     document.querySelector("#game-id").value = game.id;
 
@@ -221,22 +222,21 @@ async function loadStats() {
     averageRatingElement.textContent = stats.average_rating ?? "—";
 }
 
-// Обновляем список при изменении поиска или фильтров
 searchInput.addEventListener("input", loadGames);
 platformFilter.addEventListener("change", loadGames);
 statusFilter.addEventListener("change", loadGames);
 
-// Открываем форму добавления игры
+
 addGameButton.addEventListener("click", () => {
     addGameForm.hidden = false;
 });
 
-// Закрываем форму добавления игры
+
 cancelGameButton.addEventListener("click", () => {
     addGameForm.hidden = true;
 });
 
-// Добавляем новую игру
+
 gameForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -297,7 +297,7 @@ gameForm.addEventListener("submit", async (event) => {
 }
 });
 
-// Выход из аккаунта
+
 logoutButton.addEventListener("click", async () => {
     await fetch("/api/auth/logout", {
         method: "POST"
@@ -306,7 +306,7 @@ logoutButton.addEventListener("click", async () => {
     window.location.href = "/static/login.html";
 });
 
-// Запуск
+
 async function init() {
     try {
         const isLoggedIn = await loadUser();
