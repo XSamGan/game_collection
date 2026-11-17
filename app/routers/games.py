@@ -216,6 +216,7 @@ def create_game(
         title=data.title,
         description=data.description,
         genre=data.genre,
+        cover_url=data.cover_url,
         status_id=data.status_id,
         hours_played=data.hours_played,
         rating=data.rating,

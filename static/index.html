@@ -84,6 +84,20 @@
 
                     <form id="game-form">
                         <input type="hidden" id="game-id">
+
+                        <input type="hidden" id="game-cover-url">
+
+                        <div class="rawg-search">
+                            <input
+                                type="search"
+                                id="rawg-search"
+                                placeholder="Найти игру в RAWG..."
+                                autocomplete="off"
+                            >
+
+                            <div id="rawg-results"></div>
+                        </div>
+
                         <input type="text" id="game-title" placeholder="Название игры" required>
 
                         <textarea id="game-description" placeholder="Описание игры"></textarea>

@@ -611,3 +611,261 @@ a {
     background: #572d39;
     color: #ff9eae;
 }
+.game-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.rawg-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+}
+
+.rawg-result img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 6px;
+}
+
+#rawg-results {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.top-game-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+}
+
+.top-game-image {
+    width: 55px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.top-game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.top-game-title {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.top-game-rating {
+    color: #ffca55;
+    font-size: 13px;
+}
+
+
+/* Авторизация и регистрация */
+
+body.auth-page {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #100d18;
+}
+
+.auth-page main {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #1d1829;
+    border: 1px solid #39304d;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.auth-page main > p:first-child {
+    margin: 0 0 30px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.auth-page .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-page .input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-page label {
+    color: #d5cbe8;
+    font-size: 14px;
+}
+
+.auth-page input {
+    width: 100%;
+    padding: 13px 15px;
+    box-sizing: border-box;
+    border: 1px solid #493c60;
+    border-radius: 10px;
+    background: #15111f;
+    color: white;
+    outline: none;
+}
+
+.auth-page input:focus {
+    border-color: #c4a5f5;
+}
+
+.auth-page .button-login {
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #c4a5f5;
+    color: #21172e;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.auth-page .button-login:hover {
+    background: #d4bcff;
+}
+
+.auth-page main > p:last-child {
+    margin-top: 22px;
+    text-align: center;
+    color: #aaa0ba;
+    font-size: 14px;
+}
+
+.auth-page a {
+    color: #c4a5f5;
+    text-decoration: none;
+}
+
+.auth-page a:hover {
+    text-decoration: underline;
+}
+
+.auth-page #message {
+    color: #ff8caa;
+    text-align: center;
+}
+/* Страница авторизации и регистрации */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #100d18;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    background: #1d1829;
+    border: 1px solid #39304d;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.auth-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-form .input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-form label {
+    color: #d5cbe8;
+    font-size: 14px;
+}
+
+.auth-form input {
+    padding: 13px 15px;
+    border: 1px solid #493c60;
+    border-radius: 10px;
+    background: #15111f;
+    color: white;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #c4a5f5;
+}
+
+.auth-button {
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #c4a5f5;
+    color: #21172e;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background: #d4bcff;
+}
+
+.auth-footer {
+    text-align: center;
+    color: #aaa0ba;
+    margin-top: 22px;
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: #c4a5f5;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+#message {
+    color: #ff8caa;
+    text-align: center;
+}

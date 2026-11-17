@@ -91,6 +91,11 @@ class Game(Base):
         nullable=True,
     )
 
+    cover_url: Mapped[str | None] = mapped_column(
+    String(500),
+    nullable=True,
+    )
+
     status_id: Mapped[int] = mapped_column(
         Integer,
         ForeignKey("statuses.id"),

@@ -8,13 +8,13 @@
 </head>
 
 
-<body>
+<body class="auth-page">
     <main>
         <p>Вход</p>
 
-        <form class="login-form" id="login-form">
+        <form class="login-form" id="login-form" autocomplete="off">
             <div class="input">
-                <label for="username">Логин</label>
+                <label for="username" autocomplete="off">Логин</label>
                 <input
                     type="text"
                     id="username"
@@ -24,7 +24,7 @@
             </div>
 
             <div class="input">
-                <label for="password">Пароль</label>
+                <label for="password" autocomplete="new-password">Пароль</label>
                 <input
                     type="password"
                     id="password"

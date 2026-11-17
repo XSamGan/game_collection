@@ -49,6 +49,7 @@ class GameCreate(BaseModel):
     title: str
     description: str | None = None
     genre: str | None = None
+    cover_url: str | None = None
     status_id: int
     hours_played: float = 0
     rating: float | None = None
@@ -60,6 +61,7 @@ class GameUpdate(BaseModel):
     title: str | None = Field(default=None, min_length=1, max_length=150)
     description: str | None = None
     genre: str | None
+    cover_url: str | None = None
     status_id: int | None = None
     hours_played: float | None = Field(default=None, ge=0)
     rating: float | None = Field(default=None, ge=0, le=10)
@@ -72,6 +74,7 @@ class GameResponse(BaseModel):
     title: str
     description: str | None
     genre: str | None
+    cover_url: str | None
     status_id: int
     hours_played: float
     rating: float | None

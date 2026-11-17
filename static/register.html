@@ -8,11 +8,11 @@
 </head>
 
 
-<body>
+<body class="auth-page">
     <main>
-        <p>Вход</p>
+        <p>Регистрация</p>
 
-        <form class="login-form">
+        <form class="login-form"  id="register-form">
             <div class="input">
                 <label for="username">Логин</label>
                 <input
@@ -32,19 +32,29 @@
                     required
                 >
             </div>
+
+            <div class="input">
+                <label for="confirm-password">Повторите пароль</label>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm_password"
+                    required
+                >
+            </div>
             
 
-            <button class="button-login" type="submit">Войти</button>
+            <button class="button-login" type="submit">Зарегистрироваться</button>
         </form>
 
         <p id="message"></p>
 
         <p>
-            Нет аккаунта?
-            <a href="/static/register.html">Зарегистрироваться</a>
+            Уже есть аккаунт?
+            <a href="/static/login.html">Войти</a>
         </p>
     </main>
 
-    <script src="/static/js/login.js"></script>
+    <script src="/static/js/register.js"></script>
 </body>
 </html>
