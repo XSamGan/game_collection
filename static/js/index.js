@@ -121,37 +121,103 @@ async function loadGames() {
 
     message.textContent = "";
 
+    
     games.forEach((game) => {
         const card = document.createElement("div");
+        card.classList.add("game-card");
+
+        // Обложка
+        const cover = document.createElement("div");
+        cover.classList.add("game-cover");
+
+        const placeholder = document.createElement("div");
+        placeholder.classList.add("game-cover-placeholder");
+        placeholder.textContent = "🎮";
+
+        const platform = document.createElement("span");
+        platform.classList.add("platform-label");
+        platform.textContent = game.platform_name;
+
+        cover.append(placeholder, platform);
+
+        // Информация об игре
+        const info = document.createElement("div");
+        info.classList.add("game-info");
 
         const title = document.createElement("h3");
+        title.classList.add("game-title");
         title.textContent = game.title;
 
-        const hours = document.createElement("p");
-        hours.textContent = `Часов сыграно: ${game.hours_played}`;
+        const genre = document.createElement("p");
+        genre.classList.add("game-genre");
+        genre.textContent = game.genre || "Жанр не указан";
 
-        const rating = document.createElement("p");
-        rating.textContent = `Оценка: ${game.rating ?? "Нет оценки"}`;
+        const status = document.createElement("span");
+        status.classList.add("game-status");
+        status.textContent = game.status_name;
+
+        const statusClasses = {
+            "Не начата": "status-not-started",
+            "Играю": "status-playing",
+            "Пройдена": "status-completed",
+            "Брошена": "status-dropped"
+        };
+
+        if (statusClasses[game.status_name]) {
+            status.classList.add(statusClasses[game.status_name]);
+        }
+
+
+        // Часы и оценка
+        const meta = document.createElement("div");
+        meta.classList.add("game-meta");
+
+        const hours = document.createElement("span");
+        hours.textContent = `◷ ${game.hours_played} ч.`;
+
+        const rating = document.createElement("span");
+        rating.textContent = `★ ${game.rating ?? "—"}`;
+
+        // Меню с тремя точками
+        const menu = document.createElement("div");
+        menu.classList.add("game-menu");
+
+        const menuButton = document.createElement("button");
+        menuButton.classList.add("game-menu-button");
+        menuButton.textContent = "⋯";
+        menuButton.type = "button";
+
+        const menuContent = document.createElement("div");
+        menuContent.classList.add("game-menu-content");
 
         const editButton = document.createElement("button");
         editButton.textContent = "Редактировать";
-        editButton.classList.add("edit-game-button");
-
+        editButton.type = "button";
         editButton.addEventListener("click", () => {
             editGame(game);
         });
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Удалить";
-        deleteButton.classList.add("delete-game-button");
-
+        deleteButton.type = "button";
         deleteButton.addEventListener("click", () => {
             deleteGame(game.id);
         });
 
-        card.append(title, hours, rating, editButton, deleteButton);
+        menuButton.addEventListener("click", () => {
+            menu.classList.toggle("open");
+        });
+
+        menuContent.append(editButton, deleteButton);
+        menu.append(menuButton, menuContent);
+
+        meta.append(hours, rating, menu);
+        info.append(title, genre, status, meta);
+        card.append(cover, info);
+
         gamesList.append(card);
     });
+
 }
 
 

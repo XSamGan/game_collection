@@ -125,7 +125,12 @@ class Game(Base):
         nullable=False,
     )
     platform: Mapped["Platform"] = relationship()
+    status: Mapped["Status"] = relationship()
 
     @property
     def platform_name(self) -> str:
         return self.platform.name
+
+    @property
+    def status_name(self) -> str:
+        return self.status.name

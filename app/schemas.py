@@ -79,5 +79,6 @@ class GameResponse(BaseModel):
     user_id: int
     platform_id: int
     platform_name: str
+    status_name: str
 
     model_config = ConfigDict(from_attributes=True)

@@ -460,3 +460,154 @@ a {
     -moz-appearance: textfield;
     appearance: textfield;
 }
+
+
+/* Карточка игры */
+.game-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+/* Обложка */
+.game-cover {
+    height: 190px;
+    position: relative;
+    background: linear-gradient(135deg, #382047, #7b328b, #d85be8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.game-cover-placeholder {
+    font-size: 48px;
+    opacity: 0.7;
+}
+
+/* Платформа на обложке */
+.platform-label {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    background: rgba(22, 13, 32, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* Информация об игре */
+.game-info {
+    padding: 16px;
+    position: relative;
+}
+
+.game-title {
+    font-size: 17px;
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.game-genre {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.game-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 12px;
+    margin-bottom: 16px;
+    background: #493354;
+}
+
+/* Нижняя строка карточки */
+.game-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.game-menu {
+    margin-left: auto;
+    position: relative;
+}
+
+.game-menu-button {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.game-menu-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    min-width: 150px;
+    background: var(--card-light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    z-index: 10;
+}
+
+.game-menu.open .game-menu-content {
+    display: block;
+}
+
+.game-menu-content button {
+    display: block;
+    width: 100%;
+    padding: 9px;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    text-align: left;
+    border-radius: 6px;
+}
+
+.game-menu-content button:hover {
+    background: var(--card);
+}
+
+/* Цвета статусов игр */
+.game-status {
+    font-weight: 600;
+}
+
+.game-status.status-not-started {
+    background: #45404f;
+    color: #c4bdce;
+}
+
+.game-status.status-playing {
+    background: #49306b;
+    color: #d5aaff;
+}
+
+.game-status.status-completed {
+    background: #244d3b;
+    color: #8de0ad;
+}
+
+.game-status.status-dropped {
+    background: #572d39;
+    color: #ff9eae;
+}
